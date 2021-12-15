@@ -1,0 +1,30 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "NodeJS CLI weather app",
+  "main": "weather.js",
+  "bin": {
+    "weather": "weather.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitriAl/weather.git"
+  },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "author": "Dmitri Alexandrow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitriAl/weather/issues"
+  },
+  "homepage": "https://github.com/DmitriAl/weather#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
