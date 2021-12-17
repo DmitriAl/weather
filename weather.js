@@ -19,7 +19,6 @@ const saveToken = async (token) => {
 
 const iniCLI = () => {
     const args = getArgs(process.argv);
-    console.log(args);
     if (args.h) {
         printHelp();
     }
@@ -29,6 +28,7 @@ const iniCLI = () => {
     if (args.t) {
         saveToken(args.t);
     }
+    getWeather('moscow');
     // vivesti pogodu
 };
 
