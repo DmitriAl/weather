@@ -17,19 +17,32 @@ const saveToken = async (token) => {
     }
 };
 
+const saveCity = async (city) => {
+    if (!city.length) {
+        printError('Не передан город');
+        return;
+    }
+    try {
+        await saveKeyValue(TOKEN_DICTIONARY.city, city);
+        printSuccess('Город сохранен')
+    } catch (error) {
+        printError(error.message);
+    }
+};
+
 const getForcast = async () => {
-   try {
-       const weather = await getWeather(process.env.CITY);
-       console.log(weather);
-   } catch (error) {
-       if (error?.response?.status == 404) {
-           printError('Неверно указан город');
-       } else if (error?.response?.status == 401) {
-           printError('Неверно указан токен');
-       } else {
-           printError(error.message);
-       }
-   }
+    try {
+        const weather = await getWeather(process.env.CITY);
+        console.log(weather);
+    } catch (error) {
+        if (error?.response?.status == 404) {
+            printError('Неверно указан город');
+        } else if (error?.response?.status == 401) {
+            printError('Неверно указан токен');
+        } else {
+            printError(error.message);
+        }
+    }
 };
 
 const initCLI = () => {
@@ -38,7 +51,7 @@ const initCLI = () => {
         printHelp();
     }
     if (args.s) {
-        // save city
+        saveCity(args.s);
     }
     if (args.t) {
         saveToken(args.t);
