@@ -1,10 +1,11 @@
 import chalk from 'chalk';
 import dedent from 'dedent-js';
+import { getTime, convertDateTime } from '../helpers/funcs.js';
 
 const FORCAST_DICTIONARY = {
     degrees: '°C',
     metersPerSecond: 'м/с',
-    millimetersOfMercury: 'мм рт.ст.'
+    millimetersOfMercury: 'мм рт.ст.',
 };
 
 const printError = (error) => {
@@ -25,23 +26,6 @@ const printHelp = () => {
         `
     );
 };
-
-const convertDateTime = (time) => {
-    return +(String(time) + '000');
-};
-
-const getTime = (time) => {
-    const fullTime = new Date(time);
-    return `${setZero(fullTime.getHours())}:${setZero(fullTime.getMinutes())}:${setZero(fullTime.getSeconds())}`;
-};
-
-const setZero = (number) => {
-    if (number < 10) {
-        return '0' + String(number);
-    } else {
-        return number;
-    }
-}
 
 const printWeather = (res, icon) => {
     console.log(
